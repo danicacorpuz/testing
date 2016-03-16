@@ -89,7 +89,7 @@ public class AlchemyandRedisServlet extends HttpServlet {
 			
 			//Store in Redis Service
 			//Jedis jedis = null;
-			try {
+			//try {
 				//jedis = redisconnector.getPool().getResource();
 				//jedis.lpush("Age", ageRange);
 				//jedis.lpush("Gender", gender);
@@ -102,9 +102,9 @@ public class AlchemyandRedisServlet extends HttpServlet {
 				
 				//request.setAttribute("age", jedis.get("Age"));
 				//request.setAttribute("gender", jedis.get("Gender"));
-			} finally {
+			//} finally {
 				//jedis.close();
-			}
+			//}
 			
 			response.setContentType("text/html");
 			response.setStatus(200);

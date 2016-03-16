@@ -26,6 +26,7 @@ public class RedisConnector {
 			e.printStackTrace(System.err);
 		}
 		//pool = new JedisPool(new JedisPoolConfig(), this.host, this.port, 2000, this.password);	// timeout -1 ?
+		//pool = new JedisPool(new GenericObjectPoolConfig(), this.host, this.port, 2000, this.password);
 	}
 
 	public JedisPool getPool() {
