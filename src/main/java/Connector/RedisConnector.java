@@ -6,6 +6,8 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -26,23 +28,7 @@ public class RedisConnector {
 			e.printStackTrace(System.err);
 		}
 		//pool = new JedisPool(new JedisPoolConfig(), this.host, this.port, 2000, this.password);	// timeout -1 ?
-		//pool = new JedisPool(new GenericObjectPoolConfig(), this.host, this.port, 2000, this.password);
-	}
-
-	public JedisPool getPool() {
-		return pool;
-	}
-	
-	public String getHost() {
-		return host;
-	}
-	
-	public String getPassword() {
-		return password;
-	}
-	
-	public int getPort() {
-		return port;
+		pool = new JedisPool(new GenericObjectPoolConfig(), this.host, this.port, 2000, this.password);
 	}
 	
 	private void configParameters() throws Exception {
@@ -76,8 +62,21 @@ public class RedisConnector {
         } else {
 			throw new Exception("Environment Variable VCAP_SERVICES not found. Check your environment.");
 		}
-
-
 	}
 
+	public JedisPool getPool() {
+		return pool;
+	}
+	
+	public String getHost() {
+		return host;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public int getPort() {
+		return port;
+	}
 }

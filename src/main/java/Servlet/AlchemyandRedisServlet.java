@@ -54,10 +54,6 @@ public class AlchemyandRedisServlet extends HttpServlet {
 			AlchemyConnector alchemyconnector = new AlchemyConnector();
 			RedisConnector redisconnector = new RedisConnector();
 			
-			request.setAttribute("password", redisconnector.getPassword());
-			request.setAttribute("host", redisconnector.getHost());
-			request.setAttribute("port", redisconnector.getPort());
-			
 			StringBuilder sb = new StringBuilder();
 			String line;
 		
@@ -88,9 +84,9 @@ public class AlchemyandRedisServlet extends HttpServlet {
 			request.setAttribute("gender", gender);
 			
 			//Store in Redis Service
-			//Jedis jedis = null;
-			//try {
-				//jedis = redisconnector.getPool().getResource();
+			Jedis jedis = null;
+			try {
+				jedis = redisconnector.getPool().getResource();
 				//jedis.lpush("Age", ageRange);
 				//jedis.lpush("Gender", gender);
 				
