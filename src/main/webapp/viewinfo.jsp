@@ -18,6 +18,10 @@
 					out.println("<h3>" + agelist.get(i) + "</h3>");
 				}
 			}
+			
+			if(request.getAttribute("gender") != null) {
+				out.println("<h3> Gender: " + request.getAttribute("gender") + "</h3>");
+			}
 		%>
 		
     </body>
