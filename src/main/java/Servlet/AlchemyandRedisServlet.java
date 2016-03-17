@@ -87,8 +87,8 @@ public class AlchemyandRedisServlet extends HttpServlet {
 			Jedis jedis = null;
 			try {
 				jedis = redisconnector.getPool().getResource();
-				//jedis.lpush("Age", ageRange);
-				//jedis.lpush("Gender", gender);
+				jedis.lpush("Age", ageRange);
+				jedis.lpush("Gender", gender);
 				
 				//List<String> agelist = jedis.mget("Age");
 				//request.setAttribute("age", agelist);
