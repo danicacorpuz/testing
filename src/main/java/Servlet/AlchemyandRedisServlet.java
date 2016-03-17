@@ -101,9 +101,6 @@ public class AlchemyandRedisServlet extends HttpServlet {
 				
 				List<String> genderlist = jedis.lrange("Gender", 0, len);
 				request.setAttribute("gender", genderlist);
-				
-				request.setAttribute("age", jedis.get("Age"));
-				request.setAttribute("gender", jedis.get("Gender"));
 			} finally {
 				jedis.close();
 			}
