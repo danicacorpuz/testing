@@ -81,7 +81,7 @@ public class AlchemyandRedisServlet extends HttpServlet {
             String gender = genderJSON.get("gender").toString();
 			
 			//request.setAttribute("age", ageRange);
-			request.setAttribute("gender", gender);
+			//request.setAttribute("gender", gender);
 			
 			//Store in Redis Service
 			Jedis jedis = null;
@@ -101,7 +101,7 @@ public class AlchemyandRedisServlet extends HttpServlet {
 				genlen = jedis.llen("Gender");
 				
 				List<String> genderlist = jedis.lrange("Gender", 0, genlen);
-				//request.setAttribute("gender", genderlist);
+				request.setAttribute("gender", genderlist);
 			} finally {
 				jedis.close();
 			}
