@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,28 +9,21 @@
     </head>
     <body>
 		<h1>Information Extraction Complete</h1>
-		<%
 		
+		<%
 			if(request.getAttribute("age") != null) {
-				out.println("<h3> Age Range: " + request.getAttribute("age") + "</h3>");
+				List<String> agelist = (List<String>) request.getAttribute("age");
+				for(int i=0; i<agelist.size(); i++) {
+					out.println("<h3> Age Range: " + agelist.get(i).toString() + "</h3>");
+				}
 			}
 			
 			if(request.getAttribute("gender") != null) {
-				out.println("<h3> Gender: " + request.getAttribute("gender") + "</h3>");
+				List<String> genderlist = (List<String>) request.getAttribute("gender");
+				for(int j=0; j<genderlist.size(); j++) {
+					out.println("<h3> Gender: " + genderlist.get(i).toString() + "</h3>");
+				}
 			}
-			
-			if(request.getAttribute("port") != null) {
-				out.println("<h3> Gender: " + request.getAttribute("port") + "</h3>");
-			}
-			
-			if(request.getAttribute("password") != null) {
-				out.println("<h3> Gender: " + request.getAttribute("password") + "</h3>");
-			}
-			
-			if(request.getAttribute("host") != null) {
-				out.println("<h3> Gender: " + request.getAttribute("host") + "</h3>");
-			}
-		
 		%>
 		
     </body>
