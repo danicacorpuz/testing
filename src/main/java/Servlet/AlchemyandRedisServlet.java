@@ -87,9 +87,10 @@ public class AlchemyandRedisServlet extends HttpServlet {
 			Jedis jedis = null;
 			try {
 				jedis = redisconnector.getPool().getResource();
-				jedis.lpush("Age", ageRange);
-				jedis.lpush("Gender", gender);
+				jedis.rpush("Age", ageRange);
+				jedis.rpush("Gender", gender);
 				
+				/*
 				List<String> agelist = jedis.mget("Age");
 				request.setAttribute("age", agelist);
 				
@@ -98,6 +99,9 @@ public class AlchemyandRedisServlet extends HttpServlet {
 				
 				request.setAttribute("age", jedis.get("Age"));
 				request.setAttribute("gender", jedis.get("Gender"));
+				*/
+				
+				request.setAttribute("length", (int) jedis.llen("Age"));
 			} finally {
 				jedis.close();
 			}
