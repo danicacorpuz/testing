@@ -17,6 +17,13 @@
 					out.println("<h3> Age Range: " + agelist.get(i) + "</h3>");
 				}
 			}
+			
+			if(request.getAttribute("gender") != null) {
+				List<String> genderlist = (List<String>) request.getAttribute("gender");
+				for(int j=0; j<genderlist.size(); j++) {
+					out.println("<h3> Gender: " + genderlist.get(i) + "</h3>");
+				}
+			}
 		%>
 		
     </body>
