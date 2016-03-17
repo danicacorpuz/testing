@@ -11,8 +11,8 @@
 		<h1>Information Extraction Complete</h1>
 		
 		<%
+			int i = 0;
 			if(request.getAttribute("age") != null) {
-				int i = 0;
 				List<String> agelist = (List<String>) request.getAttribute("age");
 				out.println("Age List: ");
 				for(i=0; i<agelist.size(); i++) {
