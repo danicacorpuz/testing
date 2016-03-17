@@ -90,14 +90,14 @@ public class AlchemyandRedisServlet extends HttpServlet {
 				jedis.lpush("Age", ageRange);
 				jedis.lpush("Gender", gender);
 				
-				//List<String> agelist = jedis.mget("Age");
-				//request.setAttribute("age", agelist);
+				List<String> agelist = jedis.mget("Age");
+				request.setAttribute("age", agelist);
 				
-				//List<String> genderlist = jedis.mget("Gender");
-				//request.setAttribute("gender", genderlist);
+				List<String> genderlist = jedis.mget("Gender");
+				request.setAttribute("gender", genderlist);
 				
-				//request.setAttribute("age", jedis.get("Age"));
-				//request.setAttribute("gender", jedis.get("Gender"));
+				request.setAttribute("age", jedis.get("Age"));
+				request.setAttribute("gender", jedis.get("Gender"));
 			} finally {
 				jedis.close();
 			}
