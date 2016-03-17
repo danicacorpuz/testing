@@ -13,15 +13,17 @@
 		<%
 			if(request.getAttribute("age") != null) {
 				List<String> agelist = (List<String>) request.getAttribute("age");
+				out.println("Age List: ");
 				for(int i=0; i<agelist.size(); i++) {
-					out.println("<h3> Age Range: " + agelist.get(i) + "</h3>");
+					out.println("<h3>" + agelist.get(i) + "</h3>");
 				}
 			}
 			
 			if(request.getAttribute("gender") != null) {
 				List<String> genderlist = (List<String>) request.getAttribute("gender");
+				out.println("Gender List: ");
 				for(int j=0; j<genderlist.size(); j++) {
-					out.println("<h3> Gender: " + genderlist.get(i) + "</h3>");
+					out.println("<h3>" + genderlist.get(i) + "</h3>");
 				}
 			}
 		%>
