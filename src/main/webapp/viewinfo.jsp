@@ -13,7 +13,9 @@
 		<%
 			if(request.getAttribute("age") != null) {
 				List<String> agelist = (List<String>) request.getAttribute("age");
-				out.println("Age List: "+ agelist.size());
+				for(int i=0; i<agelist.size(); i++) {
+					out.println("<h3> Age Range: " + agelist.get(i) + "</h3>");
+				}
 			}
 		%>
 		
