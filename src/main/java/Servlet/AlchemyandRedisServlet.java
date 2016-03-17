@@ -98,9 +98,9 @@ public class AlchemyandRedisServlet extends HttpServlet {
 				
 				//request.setAttribute("age", jedis.get("Age"));
 				//request.setAttribute("gender", jedis.get("Gender"));
-			//} finally {
-				//jedis.close();
-			//}
+			} finally {
+				jedis.close();
+			}
 			
 			response.setContentType("text/html");
 			response.setStatus(200);
