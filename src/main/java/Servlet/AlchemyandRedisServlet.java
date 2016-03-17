@@ -80,28 +80,30 @@ public class AlchemyandRedisServlet extends HttpServlet {
             JSONObject genderJSON = (JSONObject) imageFaces.get("gender");
             String gender = genderJSON.get("gender").toString();
 			
-			request.setAttribute("age", ageRange);
-			request.setAttribute("gender", gender);
+			//request.setAttribute("age", ageRange);
+			//request.setAttribute("gender", gender);
 			
 			//Store in Redis Service
 			Jedis jedis = null;
+			long len = 0;
+			
 			try {
 				jedis = redisconnector.getPool().getResource();
 				jedis.rpush("Age", ageRange);
 				jedis.rpush("Gender", gender);
 				
-				/*
-				List<String> agelist = jedis.mget("Age");
+				len = jedis.llen("Age");
+				
+				List<String> agelist = jedis.lrange("Age", 0, len);
 				request.setAttribute("age", agelist);
 				
-				List<String> genderlist = jedis.mget("Gender");
+				len = jedis.llen("Gender");
+				
+				List<String> genderlist = jedis.lrange("Gender", 0, len);
 				request.setAttribute("gender", genderlist);
 				
 				request.setAttribute("age", jedis.get("Age"));
 				request.setAttribute("gender", jedis.get("Gender"));
-				*/
-				
-				request.setAttribute("length", jedis.llen("Age"));
 			} finally {
 				jedis.close();
 			}
