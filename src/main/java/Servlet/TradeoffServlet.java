@@ -1,5 +1,5 @@
 package Servlet;
-import Bean.*;
+import Connector.TradeoffAnalyticsConnector;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -51,7 +51,7 @@ public class TradeoffServlet extends HttpServlet {
 			columns.add(new NumericColumn().withKey(votes).withGoal(Goal.MIN).withObjective(true));
 			columns.add(new NumericColumn().withKey(budget).withGoal(Goal.MIN).withObjective(true));
 			
-			List<Option> options = new ArrayList<Option>();
+			List<Option> option = new ArrayList<Option>();
 			problem.setOptions(options);
 			
 			HashMap<String, Object> NCR = new HashMap<String, Object>();
