@@ -1,6 +1,3 @@
-
-package Bean;
-
 import java.util.Map;
 import java.text.ParseException;
 import org.json.simple.JSONArray;
