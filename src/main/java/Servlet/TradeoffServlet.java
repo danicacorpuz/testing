@@ -34,7 +34,7 @@ public class TradeoffServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
 			TradeoffAnalytics service = new TradeoffAnalytics();
-			service.setUsernameAndPassword(connector.getUsername(), connector.getPassword());
+			service.setUsernameAndPassword(service.getUsername(), servicel.getPassword());
 			
 			Problem problem = new Problem("campaign");
 			
@@ -162,7 +162,6 @@ public class TradeoffServlet extends HttpServlet {
 			request.getRequestDispatcher("analyze.jsp").forward(request, response);
 			
         } catch (Exception ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
