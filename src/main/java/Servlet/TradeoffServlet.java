@@ -33,7 +33,7 @@ public class TradeoffServlet extends HttpServlet {
 		
         try (PrintWriter out = response.getWriter()) {
             
-			Connector connector = new Connector;
+			Connector connector = new Connector();
 			
 			TradeoffAnalytics service = new TradeoffAnalytics();
 			service.setUsernameAndPassword(connector.getUsername(), connector.getPassword());
@@ -42,7 +42,7 @@ public class TradeoffServlet extends HttpServlet {
 			
 			String registeredvoters = "registeredvoters";
 			String votes = "votes";
-			String budget = "budget"
+			String budget = "budget";
 			
 			List<Column> columns = new ArrayList<Column>();
 			problem.setColumns(columns);
