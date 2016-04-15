@@ -33,8 +33,8 @@ public class TradeoffServlet extends HttpServlet {
 		
         try (PrintWriter out = response.getWriter()) {
             
-			TradeoffAnalytics service = new TradeoffAnalytics();
-			service.setUsernameAndPassword(service.getUsername(), servicel.getPassword());
+			TradeoffAnalyticsConnector service = new TradeoffAnalyticsConnector();
+			service.setUsernameAndPassword(service.getUsername(), service.getPassword());
 			
 			Problem problem = new Problem("campaign");
 			
