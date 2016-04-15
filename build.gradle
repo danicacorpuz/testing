@@ -20,6 +20,12 @@ dependencies {
 	compile 'org.apache.commons:commons-pool2:2.0'
 	compile 'redis.clients:jedis:2.8.1'
 	compile 'com.googlecode.json-simple:json-simple:1.1.1'
+	
+	compile 'com.ibm.watson.developer_cloud:java-wrapper:1.1.0'
+	compile group: 'com.squareup.okhttp', name: 'okhttp', version:'2.7.0'
+    	compile group: 'com.google.code.gson', name: 'gson', version:'2.5'
+    	compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.4'
+	compile 'com.ibm.watson.developer_cloud:java-sdk:2.8.0'
 
 	testCompile 'junit:junit:4.12'
 }
