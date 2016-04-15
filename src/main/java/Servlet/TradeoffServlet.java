@@ -1,5 +1,4 @@
 package Servlet;
-import Connector.TradeoffAnalyticsConnector;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,6 +19,7 @@ import com.ibm.watson.developer_cloud.tradeoff_analytics.v1.model.column.Column;
 import com.ibm.watson.developer_cloud.tradeoff_analytics.v1.model.column.Column.Goal;
 import com.ibm.watson.developer_cloud.tradeoff_analytics.v1.model.column.NumericColumn;
 
+import Connector.TradeoffAnalyticsConnector;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
