@@ -182,16 +182,7 @@ public class TradeoffServlet extends HttpServlet {
                 region = json4.get("solution_ref").toString();
                 status = json4.get("status").toString();
             }
-			if(region.matches("1")) {
-				out.println("<h2>You need to focus on NCR.</h2>");
-			} else if(region.matches("2")){
-				out.println("<h2>You need to focus on CAR</h2>");
-			} else if(region.matches("3")){
-				out.println("<h2>You need to focus on Region I</h2>");
-			}
-			
-			} catch (ParseException ex) {
-			}
+		out.println("<h1>" + region +"</h1>");
 			
 			//request.setAttribute("dilemma", dilemma);
 			
