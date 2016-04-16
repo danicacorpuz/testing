@@ -24,6 +24,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 @WebServlet(name = "TradeoffServlet", urlPatterns = {"/TradeoffServlet"})
 public class TradeoffServlet extends HttpServlet {
 
@@ -158,13 +163,39 @@ public class TradeoffServlet extends HttpServlet {
 			Dilemma dilemma = service.dilemmas(problem);
 			
 			out.println("<html>");
-        		 out.println("<head>");
-            		out.println("<title>Results</title>");
-            		out.println("</head>");
-            		out.println("<body>");
-            		out.println(dilemma);
-            		out.println("</body>");
-            		out.println("</html>");
+        	out.println("<head>");
+            out.println("<title>Results</title>");
+       		out.println("</head>");
+           	out.println("<body>");
+			try {
+			String jsonstring = dilemma.toString();
+			JSONParser parser = new JSONParser();
+            Object obj = parser.parse(jsonstring);
+            JSONObject json1 = (JSONObject) obj;
+            JSONObject json2 = (JSONObject) json1.get("resolution");
+            JSONArray json3 = (JSONArray) json2.get("solutions");
+            
+            JSONObject json4;
+            String region = null, status;
+            for(int i=0; i<json3.size(); i++) {
+                json4 = (JSONObject) json3.get(i);
+                region = json4.get("solution_ref").toString();
+                status = json4.get("status").toString();
+                
+                System.out.println(region);
+                System.out.println(status);
+            }
+			
+			if(region.matches("1")) {
+				out.println("<h2>You need to focus on NCR.");
+			} else if(region.matches("2")){
+				out.println("<h2>You need to focus on CAR</h2>");
+			} else if(region.matches("3")){
+				out.println("<h2>You need to focus on Region I</h2>");
+			}
+			
+			} catch (ParseException ex) {
+			}
 			
 			//request.setAttribute("dilemma", dilemma);
 			
